@@ -33,10 +33,10 @@ export default function Home() {
     setVerified(undefined);
 
     const queryBuilder = await zkPassportRef.current.request({
-      name: "ZKPassport",
+      name: "Taiwan Passport",
       logo: "https://zkpassport.id/favicon.png",
-      purpose: "Proof of EU citizenship and firstname",
-      scope: "eu-adult",
+      purpose: "Proof of adult from Taiwan",
+      scope: "tw-adult",
       mode: "fast",
       devMode: true,
     });
@@ -50,7 +50,7 @@ export default function Home() {
       onReject,
       onError,
     } = queryBuilder
-      .in("issuing_country", [...EU_COUNTRIES, "Zero Knowledge Republic"])
+      .in("issuing_country", ["TWN"])
       .disclose("firstname")
       .gte("age", 18)
       .disclose("document_type")
